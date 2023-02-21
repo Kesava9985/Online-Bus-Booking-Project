@@ -1,0 +1,262 @@
+<html>
+    <head>
+           <style>
+                   img{width: 1500px;height: 300px;}
+
+                   #ammu{ margin-left:550px}
+                
+                
+        </style>
+         
+           
+    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <body>
+        <img src="./images/bus-03.jpg" >
+      
+
+    
+    
+        
+        <div  class="p-3 mb-2 bg-secondary text-white" id="ammullu">
+
+       <div id="ammu">From:<select class="btn btn-dark" id="aa">
+            <option>---select---</option>
+            <option>Hyd</option>
+            <option>Bng</option>
+            <option>CHN</option>
+            <option>Del</option>
+            <option>Vizag</option>
+        </select>
+        To:<select  class="btn btn-dark" id="ab">
+            <option>---select---</option>
+            <option>Hyd</option>
+            <option>Bng</option>
+            <option>CHN</option>
+            <option>Del</option>
+            <option>Vizag</option></div>
+        </select>
+        
+        <button onclick="hello()" type="button" class="btn btn-danger">Get buses</button>
+
+        
+        
+        </div>
+        <p id="ammu"></p>
+            <script>
+                
+              var buses=[{from:"Hyd",To:"Bng", Travels:"Morning-Star-Travels",ArriveTime:"9.30",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Hyd",To:"Bng", Travels:"Kaveri-Travels",ArriveTime:"9.35",DepartTime:"9.50",NoOfSeats:"50",
+                      Fare:1200,Ac:"NO"},
+                      {from:"Hyd",To:"Bng", Travels:"KVR-Travels",ArriveTime:"9.38",DepartTime:"9.55",NoOfSeats:"50",
+                      Fare:1050,Ac:"YES"},
+                      {from:"Hyd",To:"Bng", Travels:"Krishna-Travels",ArriveTime:"9.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1150,Ac:"NO"},
+                      {from:"Hyd",To:"Bng", Travels:"Maruthi-Travels",ArriveTime:"9.40",DepartTime:"9.58",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"Hyd",To:"CHN", Travels:"Kaveri-Travels",ArriveTime:"9.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Hyd",To:"CHN", Travels:"Morning-Star-Travels",ArriveTime:"9.25",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Hyd",To:"CHN", Travels:"KVR-Travels",ArriveTime:"9.35",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Hyd",To:"CHN", Travels:"Morning-Star-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Hyd",To:"CHN", Travels:"Maruthi-Travels",ArriveTime:"9.45",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Hyd",To:"Del", Travels:"KVR-Travels",ArriveTime:"9.35",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Hyd",To:"Del", Travels:"Morning-Star-Travels",ArriveTime:"9.35",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Hyd",To:"Del", Travels:"Maruthi-Travels",ArriveTime:"9.35",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Hyd",To:"Del", Travels:"Krishna-Travels",ArriveTime:"9.35",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Hyd",To:"Del", Travels:"Kaveri-Travels",ArriveTime:"9.35",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Hyd",To:"Vizag", Travels:"Morning-Star-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Hyd",To:"Vizag", Travels:"Krishna-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Hyd",To:"Vizag", Travels:"Kaveri-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Hyd",To:"Vizag", Travels:"Maruthi-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Hyd",To:"Vizag", Travels:"Krishna-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Hyd",To:"Vizag", Travels:"Krishna-Travels",ArriveTime:"9.40",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Bng",To:"Hyd", Travels:"Maruthi-Travels",ArriveTime:"9.45",DepartTime:"9.55",NoOfSeats:"50",
+                      Fare:900,Ac:"YES"},
+                      {from:"Bng",To:"CHN", Travels:"Morning-Star-Travels",ArriveTime:"9.50",DepartTime:"9.55",NoOfSeats:"50",
+                      Fare:1000,Ac:"NO"},
+                      {from:"Bng",To:"Del", Travels:"Kaveri-Travels",ArriveTime:"9.00",DepartTime:"9.15",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Bng",To:"Vizag", Travels:"KVR-Travels",ArriveTime:"9.25",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"CHN",To:"Hyd", Travels:"Krishna-Travels",ArriveTime:"9.10",DepartTime:"9.35",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"CHN",To:"Bng", Travels:"Maruthi-Travels",ArriveTime:"10.45",DepartTime:"10.55",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"CHN",To:"Del", Travels:"Morning-Star-Travels",ArriveTime:"10.30",DepartTime:"10.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"CHN",To:"Vizag", Travels:"Mytri-Travels",ArriveTime:"8.20",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Del",To:"Hyd", Travels:"KVR-Travels",ArriveTime:"8.25",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Del",To:"Hyd", Travels:"Mytri-Travel",ArriveTime:"8.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Del",To:"Hyd", Travels:"Morning-Star-Travels",ArriveTime:"8.15",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Del",To:"Hyd", Travels:"Krishna-Travels",ArriveTime:"8.25",DepartTime:"8.50",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Del",To:"Hyd", Travels:"Maruthi-Travels",ArriveTime:"8.45",DepartTime:"8.58",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Del",To:"Bng", Travels:"Krishna-Travels",ArriveTime:"8.40",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Del",To:"Bng", Travels:"Maruthi-Travels",ArriveTime:"8.57",DepartTime:"09.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Del",To:"Bng", Travels:"Morning-Star-Travel",ArriveTime:"8.30",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Del",To:"Bng", Travels:"Mytri-Travel",ArriveTime:"8.00",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Del",To:"Bng", Travels:"KVR-Travels",ArriveTime:"8.40",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Del",To:"Bng", Travels:"Mohan-Travels",ArriveTime:"8.10",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Del",To:"CHN", Travels:"Maruthi-Travels",ArriveTime:"7.35",DepartTime:"7.55",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"Del",To:"CHN", Travels:"Morning-Star-Travel",ArriveTime:"7.25",DepartTime:"7.55",NoOfSeats:"50",
+                      Fare:900,Ac:"YES"},
+                      {from:"Del",To:"CHN", Travels:"Mytri-Travel",ArriveTime:"7.15",DepartTime:"7.35",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"Del",To:"CHN", Travels:"KVR-Travels",ArriveTime:"7.10",DepartTime:"7.25",NoOfSeats:"50",
+                      Fare:900,Ac:"YES"},
+                      {from:"Del",To:"CHN", Travels:"Krishna-Travels",ArriveTime:"7.35",DepartTime:"7.55",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"Del",To:"Vizag", Travels:"Morning-Star-Travels",ArriveTime:"7.10",DepartTime:"7.55",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"Del",To:"Vizag", Travels:"Krishna-Travels",ArriveTime:"7.20",DepartTime:"7.35",NoOfSeats:"50",
+                      Fare:1000,Ac:"NO"},
+                      {from:"Del",To:"Vizag", Travels:"Morning-Star-Travels",ArriveTime:"7.35",DepartTime:"7.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"Del",To:"Vizag", Travels:"KVR-Travels",ArriveTime:"7.30",DepartTime:"7.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"NO"},
+                      {from:"Del",To:"Vizag", Travels:"Mytri-Travels",ArriveTime:"7.30",DepartTime:"7.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"Vizag",To:"Hyd", Travels:"Kaveri-Travels",ArriveTime:"8.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Vizag",To:"Hyd", Travels:"Mytri-Travels",ArriveTime:"8.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Vizag",To:"Hyd", Travels:"KVR-Travels",ArriveTime:"8.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Vizag",To:"Hyd", Travels:"Morning-Star-Travels",ArriveTime:"8.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Vizag",To:"Hyd", Travels:"Krishna-Travels",ArriveTime:"8.20",DepartTime:"9.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Vizag",To:"Bng", Travels:"KVR-Travels",ArriveTime:"11.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Vizag",To:"Bng", Travels:"Krishna-Travels",ArriveTime:"11.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Vizag",To:"Bng", Travels:"Morning-Star-Travels",ArriveTime:"11.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Vizag",To:"Bng", Travels:"Mohan-Travels",ArriveTime:"11.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"Vizag",To:"Bng", Travels:"Mytri-Travels",ArriveTime:"11.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Vizag",To:"CHN", Travels:"Krishna-Travels",ArriveTime:"2.40",DepartTime:"5.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Vizag",To:"CHN", Travels:"Mytri-Travels",ArriveTime:"2.40",DepartTime:"5.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Vizag",To:"CHN", Travels:"Mohan-Travels",ArriveTime:"2.40",DepartTime:"5.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Vizag",To:"CHN", Travels:"Morning-Star-Travels",ArriveTime:"2.40",DepartTime:"5.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Vizag",To:"CHN", Travels:"KVR-Travels",ArriveTime:"2.40",DepartTime:"5.45",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"Vizag",To:"Del", Travels:"Maruthi-Travels",ArriveTime:"5.45",DepartTime:"9.55",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"Hyd",To:"Bng", Travels:"Krishna-Travels",ArriveTime:"1.30",DepartTime:"7.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"},
+                      {from:"Hyd",To:"CHN", Travels:"Morning-Travels",ArriveTime:"2.20",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:1120,Ac:"NO"},
+                      {from:"Hyd",To:"Del", Travels:"Kaveri-Travels",ArriveTime:"4.35",DepartTime:"8.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"YES"},
+                      {from:"Hyd",To:"Vizag", Travels:"Murthi-Travels",ArriveTime:"2.40",DepartTime:"8.45",NoOfSeats:"50",
+                      Fare:950,Ac:"NO"},
+                      {from:"Bng",To:"Hyd", Travels:"Mohan-Travels",ArriveTime:"5.45",DepartTime:"6.55",NoOfSeats:"50",
+                      Fare:900,Ac:"YES"},
+                      {from:"Bng",To:"CHN", Travels:"Mytri-Travels",ArriveTime:"2.50",DepartTime:"3.55",NoOfSeats:"50",
+                      Fare:1000,Ac:"NO"},
+                      {from:"Bng",To:"Del", Travels:"KVR-Travels",ArriveTime:"3.00",DepartTime:"5.15",NoOfSeats:"50",
+                      Fare:1120,Ac:"YES"},
+                      {from:"Bng",To:"Vizag", Travels:"Krishna-Travels",ArriveTime:"5.25",DepartTime:"9.40",NoOfSeats:"50",
+                      Fare:1100,Ac:"NO"},
+                      {from:"CHN",To:"Hyd", Travels:"Kishore-Travels",ArriveTime:"5.10",DepartTime:"9.35",NoOfSeats:"50",
+                      Fare:950,Ac:"YES"},
+                      {from:"CHN",To:"Bng", Travels:"Mohan-Travels",ArriveTime:"12.45",DepartTime:"1.55",NoOfSeats:"50",
+                      Fare:900,Ac:"NO"},
+                      {from:"CHN",To:"Del", Travels:"krishna-Mohan-Travels",ArriveTime:"11.30",DepartTime:"3.45",NoOfSeats:"50",
+                      Fare:1000,Ac:"YES"}
+                    ]
+                    
+                    
+                    function hello()
+                    
+                      {
+
+                        
+                     
+                        var button=`<button>
+                            <a href='./buses-seats.html'> 
+                                <input type="submit" value= "SELECT SEAT"  class="btn btn-danger">
+                           </a></button>`
+
+                        var actype="";
+                         var k=document.getElementById('aa').value;
+                         var c=document.getElementById('ab').value;
+                         var h=document.getElementById('hello');
+                         
+                         if(k==c){
+                            window.alert("please-check-the-location");
+                         } 
+
+                        var str="<table class='table table-dark table-striped' border='2px'>"+"<tr>"+"<th>"+
+                            "sl.no"+"</th>"+"<th>"+"from"+"</th>"+"<th>"+"To"+"</th>"+"<th>"+"Travels"+"</th>"+
+                            "<th>"+"Arrivetime"+"</th>"+"<th>"+"Dept time"+"</th>"+"<th>"+"Seats"+"</th>"+"<th>"+"Fare"+"</th>"+"<th>"+"Ac"+"</th>"+"<th>"+"Booking"+"</th>"+"</tr>"
+                            var st=" ";
+                        st=st+str;
+                         var b=1;
+                            for(var a=0;a<buses.length;a++){
+
+                            if(buses[a].from==k && buses[a].To==c){
+                                
+                                if(buses[a].Ac=='YES'){actype='AC';}
+                                
+                                else{actype='NON-AC'}
+
+                                    st=st+
+                                    "<tr>"+"<td>"+b+++"</td>"+"<td>"+buses[a].from+"</td>"+"<td>"+buses[a].To+"</td>"+"<td>"
+                                        +buses[a].Travels+"</td>"+"<td>"+buses[a].ArriveTime+"</td>"+"<td>"+buses[a].DepartTime+
+                                            "</td>"+"<td>"+buses[a].NoOfSeats+"</td>"+"<td>"+buses[a].Fare+"</td>"+"<td>"+actype+"</td>"+"<td>"+button+"</td>"+"</tr>"+"<br>"
+
+
+                            }
+
+
+
+                         }
+                         var s=st+`</table>`;
+                         h.innerHTML=s;
+                        
+                     }
+                    
+            </script>
+            
+           
+            
+            <p id="hello"></p>
+    </body> 
+    </html>
